@@ -1,38 +1,33 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) 
+int main(void)
 {
-    int temp= 5;  
-    int i, j;
+	int Max = 5;
+	int Min = 5;
 
-    for (i = 1; i <= temp; i++) 
-    {
-        for (j = 1; j <= temp - i; j++) 
-        {
-            printf(" ");
-        }
-        for (j = 1; j <= 2 * i - 1; j++) 
-        {
-            printf("*");
-        }
-        printf("\n");
-    }
+	for (int i = 1; i <= 9; i++)
+	{
+		for (int j = 1; j <= 9; j++)
+		{
+			if ((j >= Min) && (j <= Max))
+				printf("*");
+			else
+				printf(" ");
+		}
 
-    for (i = temp - 1; i >= 1; i--) 
-    {
-        for (j = 1; j <= temp - i; j++) 
-        {
-            printf(" ");
-        }
-        for (j = 1; j <= 2 * i - 1; j++) 
-        {
-            printf("*");
-        }
-        printf("\n");
-    }
+		if (i < 5)
+		{
+			Max++; Min--;
+		}
+		else
+		{
+			Max--;Min++;
+		}
 
-    system("pause");
-    return 0;
+		printf("\n");
+	}
+
+	system("pause");
+	return 0;
 }
