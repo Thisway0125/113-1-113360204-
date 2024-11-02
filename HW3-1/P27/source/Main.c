@@ -1,41 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) 
+long factorial(long number);
+
+int main(void)
 {
-    int accountNumber;
-    float beginningBalance, totalCharges, totalCredits, creditLimit, newBalance;
+	int i;
 
-    printf("Enter account number (-1 to end): ");
-    scanf("%d", &accountNumber);
+	for (i = 0; i <= 10; i++)
+	{
+		printf("%2d! = %1d\n", i, factorial(i));
+	}
 
-    while (accountNumber != -1)
-    {
-        printf("Enter beginning balance: ");
-        scanf("%f", &beginningBalance);
+	system("pause");
+	return 0;
+}
 
-        printf("Enter total charges: ");
-        scanf("%f", &totalCharges);
-
-        printf("Enter total credits: ");
-        scanf("%f", &totalCredits);
-
-        printf("Enter credit limit: ");
-        scanf("%f", &creditLimit);
-
-        newBalance = beginningBalance + totalCharges - totalCredits;
-
-        if (newBalance > creditLimit) {
-            printf("Account: %d\n", accountNumber);
-            printf("Credit limit: %.2lf\n", creditLimit);
-            printf("Balance: %.2lf\n", newBalance);
-            printf("Credit limit exceeded.\n");
-        }
-
-        printf("\nEnter account number (-1 to end): ");
-        scanf("%d", &accountNumber);
-    }
-
-    system("pause");
-    return 0;
+long factorial(long number)
+{
+	if (number <= 1)
+	{
+		return 1;
+	}
+	else
+	{
+		return (number * factorial(number - 1));
+	}
 }
